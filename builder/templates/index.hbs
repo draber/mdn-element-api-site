@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>index</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <div>
+            <h1 id="the-totally-unofficial-mdn-element-api">
+                The totally unofficial MDN Element API
+            </h1>
+
+            <p>
+                A while ago, I worked on a project where I needed a reference of
+                all HTML, SVG and MathML elements, their attributes, and
+                properties. Preferably well-structured and in JSON format. In
+                fact, something like an
+                <a href="https://developer.mozilla.org">MDN</a>
+                API, which is something that doesn&apos;t exist - or at least
+                didn&apos;t until now. I found tons of kinda-similar resources
+                on the web, but none were really to my liking.
+            </p>
+            <p>
+                And anyway, don&apos;t we all love to re-invent the wheel
+                because we secretly know that our version will be the roundest
+                and wheeliest wheel ever known to humankind? You see where this
+                is going. I made one.
+            </p>
+            <p>
+                On a side note, the project I originally needed the API for is
+                now lingering in the limbo of projects, that seemed to be a
+                great idea at the time. It now has way too many branches and I
+                can hardly remember the original train of thoughts.
+            </p>
+            <h2 id="the-list-of-elements">
+                The list of elements
+            </h2>
+
+            <p>
+                You can access the data in two different formats, either as
+                <a href="api/data.json">one big JSON resource</a>
+                with everything in it or on a per-element basis.
+            </p>
+            <p>
+                The links to the per-element resources are listed below. This
+                part is generated from said
+                <em>one big JSON resource</em>, which is pretty meta.
+            </p>
+
+            {{#each data}}
+                <h3>{{@key}}</h3>
+                <table width="400" border="1">
+                    <tbody>
+                        <tr>
+                            <td>All Elements</td>
+                            <td><a
+                                    href="mdn-element-api/api/{{tlc
+                                        @key
+                                    }}/_elements.json"
+                                >JSON</a></td>
+                            <td><a
+                                    href="https://developer.mozilla.org/en-US/docs/Web/{{@key}}/Element"
+                                    target="_blank"
+                                >MDN</a></td>
+                        </tr>
+                        {{#each this}}
+                            <tr>
+                                <td>&lt;{{this.name}}&gt;</td>
+                                <td><a
+                                        href="mdn-element-api/api/{{tlc
+                                            this.scope
+                                        }}/{{this.name}}.json"
+                                    >JSON</a></td>
+                                <td><a
+                                        href="{{this.url}}"
+                                        target="_blank"
+                                    >MDN</a></td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            {{/each}}
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,6 @@
+{
+    "paths": {
+        "pageOut":"index.html",
+        "pageIn":"builder/templates/index.hbs"
+    }
+}

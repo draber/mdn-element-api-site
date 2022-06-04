@@ -1,0 +1,3 @@
+[submodule "mdn-element-api"]
+	path = mdn-element-api
+	url = https://github.com/draber/mdn-element-api.git
